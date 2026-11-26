@@ -139,7 +139,7 @@ export async function run(): Promise<void> {
 
   // Warn if pinned to HEAD
   if (isPinnedToHead()) {
-    logWarning(pinnedToHeadWarning('v1'));
+    logWarning(pinnedToHeadWarning('v3'));
   }
 
   try {
@@ -342,7 +342,7 @@ export async function run(): Promise<void> {
       await authenticateGcloudSDK(credFile);
       logInfo('Successfully authenticated');
     } else {
-      logWarning('No authentication found, authenticate with `google-github-actions/auth`.');
+      logWarning('No authentication found, authenticate with `step-security/google-github-auth`.');
     }
 
     const toolCommand = getToolCommand();
@@ -376,7 +376,7 @@ export async function run(): Promise<void> {
     }
   } catch (err) {
     const msg = errorMessage(err);
-    setFailed(`google-github-actions/google-github-deploy-cloudrun failed with: ${msg}`);
+    setFailed(`step-security/google-github-deploy-cloudrun failed with: ${msg}`);
   }
 }
 
